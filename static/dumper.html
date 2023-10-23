@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Upload</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background-color: #2c2c2c; /* Dark gray background */
+            color: #ff9900; /* Warm orange text */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: #424242; /* Dark gray container background */
+            border: 2px solid #ff9900; /* Warm orange border */
+            border-radius: 0; /* Square edges */
+            padding: 20px;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #ff9900; /* Warm orange text */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        .file-upload {
+            background-color: #ff9900; /* Warm orange button */
+            color: #2c2c2c; /* Dark text on warm orange */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0; /* Square edges */
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+        }
+
+        .file-upload:hover {
+            background-color: #e68000; /* Darker shade of warm orange */
+        }
+
+        #file-name {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #ff9900; /* Warm orange text */
+        }
+
+        #upload-button {
+            background-color: #357375; /* Earthy green button */
+            color: #fff; /* White text on earthy green */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0; /* Square edges */
+            cursor: pointer;
+            margin-top: 20px;
+            font-family: 'Courier New', monospace;
+        }
+
+        #upload-button:hover {
+            background-color: #235659; /* Darker shade of earthy green */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>File Upload Terminal</h1>
+        <label for="file" class="file-upload">Choose a File</label>
+        <input type="file" id="file" accept="*">
+        <div id="file-name"></div>
+        <button id="upload-button">Upload</button>
+    </div>
+
+    <script>
+        const fileInput = document.getElementById('file');
+        const fileNameDisplay = document.getElementById('file-name');
+
+        fileInput.addEventListener('change', () => {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : '';
+            fileNameDisplay.textContent = `Selected File: ${fileName}`;
+        });
+    </script>
+</body>
+</html>
